@@ -4,9 +4,11 @@ import GenerateImage from "@/components/Generation/GenerateImage";
 
 export default function Home() {
   return (
-    <>
+    <div className="flex">
       <Header />
-      <GenerateImage />
-    </>
+      <div className="flex-grow h-screen flex justify-center items-center">
+        <GenerateImage />
+      </div>
+    </div>
   );
 }

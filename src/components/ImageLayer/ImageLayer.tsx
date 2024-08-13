@@ -1,7 +1,12 @@
 'use client'
 
-import * as React from 'react';
-import Image from 'next/image';
+import React, { useState } from 'react'; import Image from 'next/image';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import 'swiper/css';
+import 'swiper/css/pagination';
+import 'swiper/css/navigation';
+import { Pagination, Navigation } from 'swiper/modules';
+import './style.css'
 
 interface BackgroundProps {
     setBackground: (background: string) => void;
@@ -39,66 +44,92 @@ const ImageLayer: React.FC<BackgroundProps> = ({ setBackground, setEye, setTeeth
     }
 
     return (
-        <div>
-            <div className="grid grid-cols-4 md:grid-cols-4 gap-4 mt-6">
-                <p className='items-center font-bold text-[10px] md:text-base sm:text-normal my-auto text-left'>BACKGROUND</p>
+        <>
+            <div className="grid grid-cols-3 gap-4"> 
                 <div>
-                    <Image src="/assets/background_1.png" className='cursor-pointer' width={100} height={100} alt="" onClick={() => handleBackground('/assets/background_1.png')} />
+                    <Swiper
+                        slidesPerView={1}
+                        loop={true}
+                        modules={[Pagination, Navigation]}
+                        className="mySwiper"
+                >
+                    <SwiperSlide><Image src="/assets/background_1.png" className='cursor-pointer' width={100} height={100} alt="" onClick={() => handleBackground('/assets/background_1.png')} /></SwiperSlide>
+                    <SwiperSlide><Image src="/assets/background_2.png" className='cursor-pointer' width={100} height={100} alt="" onClick={() => handleBackground('/assets/background_2.png')}/></SwiperSlide>
+                    <SwiperSlide><Image src="/assets/background_1.png" className='cursor-pointer' width={100} height={100} alt="" onClick={() => handleBackground('/assets/background_1.png')} /></SwiperSlide>
+                    <SwiperSlide><Image src="/assets/background_1.png" className='cursor-pointer' width={100} height={100} alt="" onClick={() => handleBackground('/assets/background_1.png')} /></SwiperSlide>
+                    <SwiperSlide><Image src="/assets/background_2.png" className='cursor-pointer' width={100} height={100} alt="" onClick={() => handleBackground('/assets/background_2.png')}/></SwiperSlide>
+                    <SwiperSlide><Image src="/assets/background_1.png" className='cursor-pointer' width={100} height={100} alt="" onClick={() => handleBackground('/assets/background_1.png')}/></SwiperSlide>
+                </Swiper>
                 </div>
-                <div>
-                    <Image src="/assets/background_2.png" className='cursor-pointer' width={100} height={100} alt="" onClick={() => handleBackground('/assets/background_2.png')}/>
-                </div>
-                <div>
-                    <Image src="/assets/background_1.png" className='cursor-pointer' width={100} height={100} alt="" onClick={() => handleBackground('/assets/background_1.png')}/>
-                </div>
-            </div>
-            <div className="grid grid-cols-4 gap-4 mt-4">
-                <p className='items-center font-bold text-[10px] md:text-base sm:text-normal my-auto text-left'>SKIN</p>
-                <div>
-                    <Image src="/assets/base-skin-trex.png" className='cursor-pointer' width={100} height={100} alt="" onClick={() => { handleSkin('/assets/base-skin-trex.png') }}/>
-                </div>
-                <div>
-                    <Image src="/assets/body_1.png" className='cursor-pointer' width={100} height={100} alt="" onClick={() => { handleSkin('/assets/body_1.png') }}/>
-                </div>
-                <div>
-                    <Image src="/assets/body_2.png" className='cursor-pointer' width={100} height={100} alt="" onClick={() => { handleSkin('/assets/body_2.png') }}/>
-                </div>
-            </div>
-            {/* <div className="grid grid-cols-4 gap-4 mt-4">
-                <p className='items-center font-bold text-[10px] md:text-base sm:text-normal my-auto text-left'>SKIN</p>
-                <div>
-                    <Image src="/assets/eye.png" className='cursor-pointer' width={100} height={100} alt="" onClick={() => { handleSkin('/assets/base-skin-trex.png') }}/>
-                </div>
-            </div> */}
-            <div className="grid grid-cols-4 gap-4 mt-4">
-                <p className='items-center font-bold text-[10px] md:text-base sm:text-normal my-auto text-left'>TEETH</p>
-                <div>
-                    <Image src="/assets/teeth_1.png" className='cursor-pointer' width={100} height={100} alt="" onClick={() => { handleTeeth('/assets/teeth_1.png') }}/>
-                </div>
-                <div>
-                    <Image src="/assets/teeth_2.png" className='cursor-pointer' width={100} height={100} alt="" onClick={() => { handleTeeth('/assets/teeth_2.png') }}/>
-                </div>
-            </div>
-            <div className="grid grid-cols-4 gap-4 mt-4">
-                <p className='items-center font-bold text-[10px] md:text-base sm:text-normal my-auto text-left'>UPPER ARMOR</p>
-                <div>
-                    <Image src="/assets/upper_1.png" className='cursor-pointer' width={100} height={100} alt="" onClick={() => { handleUpper('/assets/upper_1.png') }}/>
-                </div>
-                <div>
-                    <Image src="/assets/upper_2.png" className='cursor-pointer' width={100} height={100} alt="" onClick={() => { handleUpper('/assets/upper_2.png') }}/>
-                </div>
-            </div>
+                
 
-            <div className="grid grid-cols-4 gap-4 mt-4">
-                <p className='items-center font-bold text-[10px] md:text-base sm:text-normal my-auto text-left'>LOWER ARMOR</p>
-                <div>
-                    <Image src="/assets/lower_1.png" className='cursor-pointer' width={100} height={100} alt="" onClick={() => { handleLower('/assets/lower_1.png') }}/>
+                <div className='ml-4'>
+                    <Swiper
+                        slidesPerView={1}
+                        // spaceBetween={5}
+                        loop={true}
+                        modules={[Pagination, Navigation]}
+                        className="mySwiper"
+                    >
+                        <SwiperSlide><Image src="/assets/base-skin-trex.png" className='cursor-pointer' width={100} height={100} alt="" onClick={() => { handleSkin('/assets/base-skin-trex.png') }}/></SwiperSlide>
+                        <SwiperSlide><Image src="/assets/body_1.png" className='cursor-pointer' width={100} height={100} alt="" onClick={() => { handleSkin('/assets/body_1.png') }}/></SwiperSlide>
+                        <SwiperSlide><Image src="/assets/body_2.png" className='cursor-pointer' width={100} height={100} alt="" onClick={() => { handleSkin('/assets/body_2.png') }} /></SwiperSlide>
+                        <SwiperSlide><Image src="/assets/base-skin-trex.png" className='cursor-pointer' width={100} height={100} alt="" onClick={() => { handleSkin('/assets/base-skin-trex.png') }}/></SwiperSlide>
+                        <SwiperSlide><Image src="/assets/body_1.png" className='cursor-pointer' width={100} height={100} alt="" onClick={() => { handleSkin('/assets/body_1.png') }}/></SwiperSlide>
+                        <SwiperSlide><Image src="/assets/body_2.png" className='cursor-pointer' width={100} height={100} alt="" onClick={() => { handleSkin('/assets/body_2.png') }}/></SwiperSlide>
+                    </Swiper>
                 </div>
-                <div>
-                    <Image src="/assets/lower_2.png" className='cursor-pointer' width={100} height={100} alt="" onClick={() => { handleLower('/assets/lower_2.png') }}/>
+
+                <div className='ml-10 -mt-8'>
+                    <Swiper
+                        slidesPerView={1}
+                        loop={true}
+                        modules={[Pagination, Navigation]}
+                        className="mySwiper"
+                    >
+                        <SwiperSlide><Image src="/assets/teeth_1.png" className='cursor-pointer' width={100} height={100} alt="" onClick={() => { handleTeeth('/assets/teeth_1.png') }}/></SwiperSlide>
+                        <SwiperSlide><Image src="/assets/teeth_2.png" className='cursor-pointer' width={100} height={100} alt="" onClick={() => { handleTeeth('/assets/teeth_2.png') }}/></SwiperSlide>
+                        <SwiperSlide><Image src="/assets/teeth_1.png" className='cursor-pointer' width={100} height={100} alt="" onClick={() => { handleTeeth('/assets/teeth_1.png') }}/></SwiperSlide>
+                        <SwiperSlide><Image src="/assets/teeth_2.png" className='cursor-pointer' width={100} height={100} alt="" onClick={() => { handleTeeth('/assets/teeth_2.png') }}/></SwiperSlide>
+                        <SwiperSlide><Image src="/assets/teeth_1.png" className='cursor-pointer' width={100} height={100} alt="" onClick={() => { handleTeeth('/assets/teeth_1.png') }}/></SwiperSlide>
+                        <SwiperSlide><Image src="/assets/teeth_2.png" className='cursor-pointer' width={100} height={100} alt="" onClick={() => { handleTeeth('/assets/teeth_2.png') }}/></SwiperSlide>
+                    </Swiper>
                 </div>
             </div>
-        </div>
+            <div className="grid grid-cols-3 gap-4">
+                <div className='mt-8 p-2'>
+                    <Swiper
+                        slidesPerView={1}
+                        loop={true}
+                        modules={[Pagination, Navigation]}
+                        className="mySwiper"
+                    >
+                        <SwiperSlide><Image src="/assets/upper_1.png" className='cursor-pointer' width={100} height={100} alt="" onClick={() => { handleUpper('/assets/upper_1.png') }}/></SwiperSlide>
+                        <SwiperSlide><Image src="/assets/upper_2.png" className='cursor-pointer' width={100} height={100} alt="" onClick={() => { handleUpper('/assets/upper_2.png') }}/></SwiperSlide>
+                        <SwiperSlide><Image src="/assets/upper_1.png" className='cursor-pointer' width={100} height={100} alt="" onClick={() => { handleUpper('/assets/upper_1.png') }}/></SwiperSlide>
+                        <SwiperSlide><Image src="/assets/upper_2.png" className='cursor-pointer' width={100} height={100} alt="" onClick={() => { handleUpper('/assets/upper_2.png') }}/></SwiperSlide>
+                        <SwiperSlide><Image src="/assets/upper_1.png" className='cursor-pointer' width={100} height={100} alt="" onClick={() => { handleUpper('/assets/upper_1.png') }}/></SwiperSlide>
+                        <SwiperSlide><Image src="/assets/upper_2.png" className='cursor-pointer' width={100} height={100} alt="" onClick={() => { handleUpper('/assets/upper_2.png') }}/></SwiperSlide>
+                    </Swiper>
+                </div>
+
+                <div className='p-2'>
+                    <Swiper
+                        slidesPerView={1}
+                        loop={true}
+                        modules={[Pagination, Navigation]}
+                        className="mySwiper"
+                    >
+                        <SwiperSlide><Image src="/assets/lower_1.png" className='cursor-pointer' width={100} height={100} alt="" onClick={() => { handleLower('/assets/lower_1.png') }}/></SwiperSlide>
+                        <SwiperSlide><Image src="/assets/lower_2.png" className='cursor-pointer' width={100} height={100} alt="" onClick={() => { handleLower('/assets/lower_2.png') }}/></SwiperSlide>
+                        <SwiperSlide><Image src="/assets/lower_1.png" className='cursor-pointer' width={100} height={100} alt="" onClick={() => { handleLower('/assets/lower_1.png') }}/></SwiperSlide>
+                        <SwiperSlide><Image src="/assets/lower_2.png" className='cursor-pointer' width={100} height={100} alt="" onClick={() => { handleLower('/assets/lower_2.png') }}/></SwiperSlide>
+                        <SwiperSlide><Image src="/assets/lower_1.png" className='cursor-pointer' width={100} height={100} alt="" onClick={() => { handleLower('/assets/lower_1.png') }}/></SwiperSlide>
+                        <SwiperSlide><Image src="/assets/lower_2.png" className='cursor-pointer' width={100} height={100} alt="" onClick={() => { handleLower('/assets/lower_2.png') }}/></SwiperSlide>
+                    </Swiper>
+                </div>
+            </div>
+        </>
     )
 }
 
